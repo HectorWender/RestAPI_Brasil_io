@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Result return API Brasil.io";
+}
+
+<h1>@Html.ViewData["Title"]</h1>
+
+<table class="table border">
+    <thead>
+        <tr>
+            <th>City</th>
+            <th>IBGE code</th>
+            <th>Date</th>
+            <th>Deaths</th>
+            <th>Estimated population</th>
+            <th>State</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.city</td>
+                <td>@item.city_ibge_code</td>
+                <td>@item.date</td>
+                <td>@item.deaths</td>
+                <td>@item.estimated_population</td>
+                <td>@item.state</td>
+            </tr>
+        }
+        @*<tr>
+            <td>@Model.city</td>
+            <td>@Model.city_ibge_code</td>
+            <td>@Model.date</td>
+            <td>@Model.deaths</td>
+            <td>@Model.estimated_population</td>
+            <td>@Model.state</td>
+            </tr>*@
+    </tbody>
+</table>
