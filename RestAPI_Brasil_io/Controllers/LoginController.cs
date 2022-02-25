@@ -1,24 +1,43 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using RestAPI_Brasil_io.Database;
 using RestAPI_Brasil_io.Models;
-using System.Diagnostics;
+using System.Linq;
 
-namespace RestAPI_Brasil_io.Controllers
+namespace WebMySQL.Controllers
 {
-  public class LoginController : Controller
-  {
-    private readonly ILogger<LoginController> _logger;
-
-    public LoginController(ILogger<LoginController> logger) => _logger = logger;
-
-    public IActionResult Index() => View();
-
-    public IActionResult Privacy() => View();
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
+    public class LoginController : Controller
     {
-      return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        private readonly Context _context;
+
+        public LoginController(Context context)
+        {
+            _context = context;
+        }
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Index(LoginViewModel login)
+        {
+            var user = (from u in _context.User
+                       where u.Email == login.Email
+                       select u).FirstOrDefault();
+
+            if (user == null)
+                ModelState.AddModelError("Email", "User not found!");
+
+            if (user != null && user.Password != login.Password)
+                ModelState.AddModelError("Password", "Invalid Password");
+
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Index", "Api");
+            }
+
+            return View(login);
+
+        }
     }
-  }
 }

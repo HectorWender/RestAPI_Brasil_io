@@ -1,8 +1,8 @@
 ﻿namespace RestAPI_Brasil_io.Models
 {
-  public class LoginModel
+  public class LoginViewModel
   {
     public string Email { get; set; }
-    public string Senha { get; set; }
+    public string Password { get; set; }
   }
 }

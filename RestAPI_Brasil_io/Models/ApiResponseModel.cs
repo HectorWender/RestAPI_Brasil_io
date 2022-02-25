@@ -13,7 +13,7 @@ namespace RestAPI_Brasil_io.Models
     public int? deaths { get; set; }
     public int? estimated_population { get; set; }
     public int? estimated_population_2019 { get; set; }
-    public bool is_last { get; set; }
+    public string is_last { get; set; }
     public int? order_for_place { get; set; }
     public string place_type { get; set; }
     public string state { get; set; }
