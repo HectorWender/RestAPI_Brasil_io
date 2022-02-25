@@ -19,6 +19,9 @@ namespace RestAPI_Brasil_io.Controllers
         public async Task<IActionResult> Index()
         {
             var response = await _service.GetData();
+            if(response == null)
+                return View(response);
+
             return View(response.results);
         }
 

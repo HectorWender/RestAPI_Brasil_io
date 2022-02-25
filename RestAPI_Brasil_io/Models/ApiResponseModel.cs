@@ -4,7 +4,7 @@ namespace RestAPI_Brasil_io.Models
 {
   public class Result
   {
-    public object city { get; set; }
+    public string city { get; set; }
     public string city_ibge_code { get; set; }
     public int? confirmed { get; set; }
     public double? confirmed_per_100k_inhabitants { get; set; }
