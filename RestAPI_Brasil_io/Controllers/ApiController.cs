@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using RestAPI_Brasil_io.Models;
 using RestAPI_Brasil_io.Service;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RestAPI_Brasil_io.Controllers

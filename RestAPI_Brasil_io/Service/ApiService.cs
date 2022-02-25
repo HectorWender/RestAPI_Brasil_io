@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RestAPI_Brasil_io.Models;
 using RestSharp;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RestAPI_Brasil_io.Service
@@ -14,10 +12,7 @@ namespace RestAPI_Brasil_io.Service
         private readonly string _baseApiUrl = "https://api.brasil.io/v1/dataset/covid19/caso/data/";
 
         public ApiService(string token = null) => _token = token;
-        private IEnumerator getEnumerator()
-        {
-            return (IEnumerator)this;
-        }
+
         public async Task<ApiResponseModel> GetData(Result search = null)
         {
             var client = new RestClient(_baseApiUrl);
