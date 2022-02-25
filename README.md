@@ -7,6 +7,7 @@ Password: qwerty@123
 
 Obs: Está faltando configurar as seções de login
      Melhorar o front
+     O Firebase Hosting não suporta .net
      
 #TODO
   CRUD de usuários
